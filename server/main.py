@@ -8,6 +8,7 @@ import uvicorn
 from fastapi import FastAPI, File, Form, HTTPException, Depends, Body, UploadFile
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from models.api import (
     DeleteRequest,
@@ -33,6 +34,10 @@ def validate_token(credentials: HTTPAuthorizationCredentials = Depends(bearer_sc
 
 app = FastAPI()
 app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['https://chat.openai.com']
+)
 
 # Create a sub-application, in order to access just the upsert and query endpoints in the OpenAPI schema, found at http://0.0.0.0:8000/sub/openapi.json when the app is running locally
 sub_app = FastAPI(
@@ -65,7 +70,7 @@ async def upsert_main(
     "/upsert",
     response_model=UpsertResponse,
     # NOTE: We are describing the shape of the API endpoint input due to a current limitation in parsing arrays of objects from OpenAPI schemas. This will not be necessary in the future.
-    description="Save chat information. Accepts an array of documents with text (potential questions + conversation text), metadata (source 'chat' and timestamp, no ID as this will be generated). Confirm with the user before saving, ask for more details/context.",
+    description="Save chat information ARST. Accepts an array of documents with text (potential questions + conversation text), metadata (source 'chat' and timestamp, no ID as this will be generated). Confirm with the user before saving, ask for more details/context.",
 )
 async def upsert(
     request: UpsertRequest = Body(...),
