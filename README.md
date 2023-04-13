@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".well-known/logo.png" alt="Pira" width="40%" />
+  <img src=".well-known/logo-nobg.png" alt="Pira" width="40%" />
 </p>
 
 # Pyramind: Hierarchical Memory Recall System for Language Models
