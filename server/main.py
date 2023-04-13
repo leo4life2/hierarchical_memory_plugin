@@ -39,7 +39,7 @@ sub_app = FastAPI(
     title="Pyramind Plugin API",
     description="A hierarchical memory recall API that enhances language model responses by organizing chat histories into multi-level abstractions for optimized context retrieval and improved user query handling",
     version="1.0.0",
-    servers=[{"url": "https://your-app-url.com"}],
+    servers=[{"url": "https://pyramind-production.up.railway.app"}],
     dependencies=[Depends(validate_token)],
 )
 app.mount("/sub", sub_app)

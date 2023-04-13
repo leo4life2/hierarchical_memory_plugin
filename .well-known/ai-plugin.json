@@ -1,19 +1,19 @@
 {
   "schema_version": "v1",
   "name_for_model": "pyramind",
-  "name_for_human": "Pyramind Hierarchical Memory Plugin",
+  "name_for_human": "Pyramind",
   "description_for_model": "A hierarchical memory recall API for optimizing language model responses by organizing chat histories into multi-level abstractions; use this for every dialogue to automatically save and manage all interactions.",
-  "description_for_human": "A hierarchical memory recall API that enhances language model responses by organizing chat histories into multi-level abstractions for optimized context retrieval and improved user query handling.",
+  "description_for_human": "Hierarchical memory recall API with multi-level abstractions for optimized context retrieval and user query handling.",
   "auth": {
     "type": "user_http",
     "authorization_type": "bearer"
   },
   "api": {
     "type": "openapi",
-    "url": "https://hierarchicalmemoryplugin-production.up.railway.app/.well-known/openapi.yaml",
+    "url": "https://pyramind-production.up.railway.app/.well-known/openapi.yaml",
     "has_user_authentication": false
   },
-  "logo_url": "https://hierarchicalmemoryplugin-production.up.railway.app/.well-known/logo.png",
+  "logo_url": "https://pyramind-production.up.railway.app/.well-known/logo.png",
   "contact_email": "leo.li@nyu.edu", 
   "legal_info_url": "leo.li@nyu.edu"
 }
