@@ -16,7 +16,7 @@ This repository contains the implementation of a Hierarchical Memory Recall Syst
 - Updating the hierarchical structure during chatting
 - Retrieval process based on similarity search
 
-## Quickstart (largely from [chatgpt-retrieval-plugin]<https://github.com/openai/chatgpt-retrieval-plugin>)
+## Quickstart (largely from [chatgpt-retrieval-plugin](https://github.com/openai/chatgpt-retrieval-plugin))
 
 Follow these steps to quickly set up and run the ChatGPT Retrieval Plugin:
 
