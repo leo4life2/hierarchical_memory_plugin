@@ -16,6 +16,22 @@ This repository contains the implementation of a Hierarchical Memory Recall Syst
 - Updating the hierarchical structure during chatting
 - Retrieval process based on similarity search
 
+## Quickstart (largely from [chatgpt-retrieval-plugin]<https://github.com/openai/chatgpt-retrieval-plugin>)
+
+Follow these steps to quickly set up and run the ChatGPT Retrieval Plugin:
+
+1. Install Python 3.10, if not already installed.
+2. Clone the repository: `git clone https://github.com/leo4life2/hierarchical_memory_plugin.git`
+3. Navigate to the cloned repository directory: `cd /path/to/hierarchical_memory_plugin`
+4. Install poetry: `pip install poetry`
+5. Create a new virtual environment with Python 3.10: `poetry env use python3.10`
+6. Activate the virtual environment: `poetry shell`
+7. Install app dependencies: `poetry install`
+8. Rename `.env.example` to `.env`, and set the required environment variables (make sure you have a Pinecone account and index created).
+9. Run `source .env` to load the environment variables.
+10. Run the API locally: `poetry run start`
+11. Access the API documentation at `http://0.0.0.0:8000/docs` and test the API endpoints (make sure to add your bearer token).
+
 ## How it works
 
 1. **Memory chunk creation**: Chat histories are divided into fixed-sized "memory chunks" of 200 tokens, with an overlapping window approach to preserve context.
@@ -32,19 +48,10 @@ This repository contains the implementation of a Hierarchical Memory Recall Syst
 
 7. **Retrieval process**: When a user provides a prompt, a similarity search is performed with the prompt to retrieve relevant memories from the vectorstore, regardless of their level of abstraction. The top result from vector similarity is assumed to provide the best context. If the context window allows for more tokens, additional relevant memories can be included to provide a more comprehensive response.
 
-## Installation
-
-(TBA)
-
 ## Usage
 
-(TBA)
+With the Pyramind plugin enabled, ChatGPT will try to proactively remember dialogues it considers important, but of course, you can also inform it to remember things you want it to. The Pyramind plugin organizes chat histories into a hierarchical structure with varying levels of abstraction, allowing ChatGPT to retrieve information at different levels of abstraction based on user queries, enabling access to both specific and abstract information.
 
-## Contributing
+## Supported Vector Databases
 
-(TBA)
-
-## License
-
-(TBA)
-
+This repo is largely based on the [chatgpt-retrieval-plugin](https://github.com/openai/chatgpt-retrieval-plugin) repo, and all the vector databases it supports should work here, but it currently has only been tested on the Pinecone vectorstore.
